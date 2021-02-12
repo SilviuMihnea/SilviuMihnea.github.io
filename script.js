@@ -24,6 +24,6 @@ function createBubble(bubble) {
     return element;
 }
 
-const bubblesWrapper = document.getElementById('floating-bubbles');
+const bubblesWrapper = document.getElementById('skills-floating-bubbles');
 
 skills.map(createBubble).forEach(bubble => bubblesWrapper.appendChild(bubble));

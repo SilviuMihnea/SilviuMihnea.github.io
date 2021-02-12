@@ -1,0 +1,68 @@
+#skills-floating-bubbles {
+    background-color: var(--dark-color);
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    position: absolute;
+}
+
+.floating {
+    position: absolute;
+    top: 0;
+    left: -150px;
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover;
+    box-shadow: rgba(0, 0, 0, 0.4) 0 5px 15px 5px;
+    background-color: var(--light-color);
+    transition: ease-in 1s;
+    margin: 20px;   
+}
+
+.floating img {
+    height: 100%;
+    width: auto;
+    border-radius: 50%;
+    transition: ease 1s;
+    user-select: none;
+}
+
+.floating-large {
+    width: 100px;
+    height: 100px;
+}
+
+.floating-medium {
+    width: 80px;
+    height: 80px;
+}
+
+.floating-small {
+    width: 60px;
+    height: 60px;
+}
+
+.floating-expanded {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    z-index: 1;
+    left: 20px;
+    top: 20px;
+}
+
+.floating-expanded img {
+    border-radius: 0;
+}
+
+@keyframes float-top {
+    0% { transform: translateY(0); }
+    30% { transform: translateY(150px); }
+    70% { transform: translateY(-150px); }
+    100% { transform: translateY(0) }
+}
+
+@keyframes float-left {
+    0% { left: -1000px; }
+    100% { left: calc(100% + 1000px); }
+}
