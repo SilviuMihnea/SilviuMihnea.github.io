@@ -15,4 +15,5 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 14.15
+    - run: npm install --silent --no-audit
     - run: npm run deploy
