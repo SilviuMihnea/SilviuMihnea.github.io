@@ -1,8 +1,9 @@
 :root {
-    --light-color: #e4e4e4;
+    --light-color: #fefefe;
     --dark-color: #202020;
     --primary-color: red;
     --secondary-color: #1ec8e6;
+    user-select: none;
 }
 
 * {
@@ -21,7 +22,7 @@ body {
     sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #e4e4e4;
+    background-color: var(--light-color);
 }
 
 code {
@@ -30,13 +31,10 @@ code {
 }
 
 ::-webkit-scrollbar {
-    width: 8px;
-    background: var(--dark-color);
+    background: var(--light-color);
+    width: 12px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #0cbaba;
-    background-image: linear-gradient(315deg, #0cbaba 0%, #380036 74%);
-
-    border-radius: 8px;
+    background: var(--dark-color);
 }

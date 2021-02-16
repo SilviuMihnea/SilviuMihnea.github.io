@@ -5,7 +5,8 @@ import React, { forwardRef } from "react";
 const useStyles = makeStyles(() => createStyles({
     section: {
         width: '100%',
-        height: '100%'
+        height: '100%',
+        position: 'relative'
     }
 }));
 

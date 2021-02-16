@@ -1,24 +1,19 @@
-import clsx from 'clsx';
 import React from "react";
 import { createStyles } from "@material-ui/core";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 
-const useStyles = ({ durationTop, durationLeft }) => makeStyles((theme) => {
+const sizes = {
+    'large': '100px',
+    'medium': '80px',
+    'small': '60px'
+}
+
+const useStyles = makeStyles(() => {
     return createStyles({
-        'bubble-large': {
-            width: '100px',
-            height: '100px'
-        },
-        'bubble-medium': {
-            width: '80px',
-            height: '80px'
-        },
-        'bubble-small': {
-            width: '60px',
-            height: '60px'
-        },
         'bubble': {
             position: 'absolute',
+            width: 'var(--bubble-size)',
+            height: 'var(--bubble-size)',
             borderRadius: '50%',
             backgroundPosition: 'center',
             backgroundSize: 'cover',
@@ -37,16 +32,16 @@ const useStyles = ({ durationTop, durationLeft }) => makeStyles((theme) => {
                 width: 'auto',
                 userSelect: 'none'
             },
-            animation: `$float-top ${durationTop}s -20s linear infinite alternate, 
-                        $float-left ${durationLeft}s -30s linear infinite`
+            animation: `$float-top var(--duration-top) -20s linear infinite alternate, 
+                        $float-left var(--duration-left) -30s linear infinite`
         },
         '@keyframes float-top': {
-            'from': { top: '0%' },
-            'to': { top: '100%' }
+            'from': { top: 'calc(0% + 0.5 * var(--bubble-size))' },
+            'to': { top: 'calc(100% - 0.5 * var(--bubble-size))' }
         },
         '@keyframes float-left': {
-            'from': { left: '-20%' },
-            'to': { left: '120%' }
+            'from': { left: '-100%' },
+            'to': { left: '200%' }
         }
     });
 });
@@ -56,12 +51,17 @@ const newDuration = (base, range) => base + range * Math.random();
 const Bubble = ({ name, size }) => {
 
     const durationTop = newDuration(10, 10);
-    const durationLeft = newDuration(10, 20);
-    const styles = useStyles({ durationTop, durationLeft })();
+    const durationLeft = newDuration(10, 5);
+    const styles = useStyles();
 
     return (
         <div id={`bubble-${name}`}
-             className={clsx(styles.bubble, styles[`bubble-${size}`])}>
+             style={{
+                 '--duration-top': `${durationTop}s`,
+                 '--duration-left': `${durationLeft}s`,
+                 '--bubble-size': sizes[size]
+             }}
+             className={styles.bubble}>
             <img src={`./images/${name}.png`}
                  alt={name}
             />

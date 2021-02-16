@@ -6,8 +6,10 @@ import { createStyles } from "@material-ui/core";
 
 const useStyles = makeStyles(() => createStyles({
     bubbles: {
-        background: 'linear-gradient(315deg, #00bfb2 0%, #028090 74%)',
-        backgroundColor: ' #00bfb2',
+        //background: 'linear-gradient(315deg, #00bfb2 0%, #028090 74%)',
+        //backgroundColor: ' #00bfb2',
+        backgroundColor: '#3f0d12',
+        backgroundImage: 'linear-gradient(315deg, #3f0d12 0%, #a71d31 74%)',
         width: '100%',
         height: '300px',
         overflow: 'hidden',
